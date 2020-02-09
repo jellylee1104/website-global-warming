@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Alatsi|Dosis&display=swap');
 
 .GWET-color{
   background-color: rgba(111,232,144,0.6);
@@ -16,6 +16,20 @@
 #title{
   font-size: 50px;
   font-family: 'Dosis', sans-serif;
+}
+
+.page-header{
+  font-size: 50px;
+  font-family: 'Dosis', sans-serif;
+  text-align:center;
+  color: #f50525;
+}
+
+#effect{
+  font-size: 50px;
+  font-family: 'Alatsi', sans-serif;
+  text-align:center;
+  color: royalblue;
 }
 
 
@@ -57,158 +71,84 @@ li{
 
 
 
-* {
+/* * {
     box-sizing: border-box;
     user-select: none;
-}
-
-#stackBase, #stackCap, .slice, #notification {
-    position: absolute;
-}
-
-#stackCap, #stackBase, .slice {
-    border: solid 2px rgba(0, 0, 0, 0.1);
-}
-
-#stackCap, #stackBase {
-    left: calc(50vw - 100px);
-    width: 200px;
-    background-color: peru;
-}
-
-body, html {
-    height: 100%;
-    margin: 0;
+} */
+#random {
     text-align: center;
-    font-family: 'Coiny';
-    background-color: #fce4c7;
+    font-family: 'IBM Plex Mono', monospace;
+  text-shadow: 2px 2px blue;
 }
 
-#title {
-    font-size: 8vh;
-    height: 15vh;
-    padding-top: 3vh;
-    border-style: double;
-    border-color: #f77171;
-    border-width: 0 0 10px 0;
-    color: royalblue;
-    background-color: #fffab5;
-    white-space: nowrap;
+#game {
+    text-align: center;
 }
 
-#stage {
-    position: relative;
-    height: 70vh;
+#gen {
+    font-family: 'Rammetto One';
+    background-color: #FF5F5F;
+    width:120px;
+    height:70px;
+  font-size:25px;
 }
 
-#stackBase {
-    top: calc(90% - 25px);
-   height: 15px;
-  border-radius: 100px 30px 100px 30px;
-/*   background-color: #ffd999; */
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSghtoSkRk5_bfJW2hWwMfKH3HInlWdxmD-gTY5VN74gulSNFCIGA");
+#gold {
+    width: 510px;
+    height: 300px;
+    margin:20px;
+  box-shadow: 5px 10px 15px black;
 }
 
-#stackCap {
-    height: 15px;
-border-radius: 100px 30px 100px 30px;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSghtoSkRk5_bfJW2hWwMfKH3HInlWdxmD-gTY5VN74gulSNFCIGA");
+
+.card-text {
+    padding: 0 10px;
+    text-align: center;
+
 }
 
-.slice {
-    border-radius: 10px;
+.card {
+    width: 370px;
+    margin-left: 2%;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    float: left;
+    background-color: rgba(255, 143, 244, 0.7);
 }
 
-.meat {
-    background-color: sienna;
-    left: calc(54vw - 100px);
-    width: 170px;
-    height: 15px;
-}
-.lettuce {
-    background-color: pink;
-    left: calc(52vw - 105px);
-    width: 200px;
-    height: 10px;
-}
-.cheese {
-    background-color: gold;
-    left: calc(54vw - 90px);
-    width: 150px;
-    height: 9px;
-}
-.onion {
-    background-color: forestgreen;
-    left: calc(50vw - 88px);
-    width: 176px;
-    height: 16px;
+.card-image {
+    width: 100%;
 }
 
-#control {
-    display: flex;
-    width: 100vw;
-    height: 15vh;
+#extreme-li{
+  font-size:20px;
 }
 
-.inputOptions {
-    flex: 1;
-    margin: 0 10px;
-    width: 25vw;
-    height: 100%;
-    border: none;
-    outline: none;
-    border-radius: 20px 20px 0 0;
-    color: rgba(0, 0, 0, 0.6);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 5vh;
+table {
+  width:100%;
 }
 
-#option1 {
-    background-color: sienna;
-    background-image: url('https://dumielauxepices.net/sites/default/files/candy-bar-clipart-transparent-background-879334-1323614.png');
-  background-size: 100px;
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table tr:nth-child(even) {
+  background-color: #eee;
+}
+table tr:nth-child(odd) {
+ background-color: #fff;
+}
+table th {
+  background-color: black;
+  color: white;
 }
 
-#option2 {
-    background-color: #ff6b6b;
-    background-image: url('https://s3.amazonaws.com/peoplepng/wp-content/uploads/2018/10/30151534/Ham-PNG-File.png');
-  background-size: 100px;
-}
 
-#option3 {
-    background-color: gold;
-    background-image: url('http://res.freestockphotos.biz/pictures/5/5103-illustration-of-an-egg-cooked-sunny-side-up-pv.png');
-  background-size: 100px;
-}
 
-#option4 {
-    background-color: #00961e;
-    background-image: url('https://regiondirect.files.wordpress.com/2014/09/lettuce.png?w=300&h=239');
-  background-size: 100px;
-}
 
-#notification {
-    left: 50%;
-    top: calc(15vh + 10px);
-    transform: translateX(-50%);
-    width: 90vw;
-    max-width: 500px;
-    padding: 15px 25px;
-    border-radius: 20px;
-    background-color: #ff66e0;
-    font-family: 'Rancho';
-    font-size: 3vh;
-    opacity: 1;
-}
-
-#info {
-    color: paleturquoise;
-}
-
-#action {
-    margin: 10px auto 0 auto;
-    border-radius: 8px;
-    color: whitesmoke;
-    cursor: pointer;
+#ans{
+  width:300px;
+  height:40px;
 }

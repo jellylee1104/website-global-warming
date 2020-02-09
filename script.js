@@ -1,108 +1,120 @@
-var gameGrid = document.getElementById("gameGrid");
-var tiles = Array.from(document.getElementsByClassName("tiles"));
-var icons = Array.from(document.getElementsByClassName("fa"));
-var padding = 15;
-var attempt = [];
-var matched = 0;
+// var pic1 = "https://img1.etsystatic.com/198/1/17027252/il_340x270.1485232995_a24s.jpg";
+// var pic2 = "https://img0.etsystatic.com/197/0/16034376/il_340x270.1323341952_95dy.jpg";
+// var pic3 = "https://img0.etsystatic.com/174/1/11862126/il_340x270.1168388706_cr09.jpg";
+// var pic4 = "https://img1.etsystatic.com/202/0/9022352/il_340x270.1271158443_9sah.jpg";
+//
+//
+// var pictures = [pic1, pic2, pic3, pic4];
+//
+// function Generator() {
+//     var randomImg = Math.floor(Math.random() * pictures.length);
+//     gold.src = pictures[randomImg];
+//       document.getElementById("gold").style.boxShadow = "5px 10px 15px black";
+// }
+//
+// // var ans = document.getElementById("ans");
+//
+// function submit(){
+//   if ( document.getElementById("gold") === "https://images.unsplash.com/photo-1536096347608-f2d054f64a17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" ) {
+//     if (ans === "Burning coal") {
+//       document.getElementById("ans").innerHTML = "right answer";
+//     }else {
+//       document.getElementById("ans").innerHTML = "wrong answer";
+//     }
+//   }
+//     if ( document.getElementById("gold") === "https://img1.etsystatic.com/198/1/17027252/il_340x270.1485232995_a24s.jpg" ) {
+//       if (ans === "Burning coal") {
+//         document.getElementById("ans").innerHTML = "right answer";
+//       }else {
+//         document.getElementById("ans").innerHTML = "wrong answer";
+//       }
+//     }
+//
+//       if ( document.getElementById("gold") === "https://img0.etsystatic.com/197/0/16034376/il_340x270.1323341952_95dy.jpg" ) {
+//         if (ans === "Burning coal") {
+//           document.getElementById("ans").innerHTML = "right answer";
+//         }else {
+//           document.getElementById("ans").innerHTML = "wrong answer";
+//         }
+//       }
+//
+//         if ( document.getElementById("gold") === "https://img0.etsystatic.com/174/1/11862126/il_340x270.1168388706_cr09.jpg" ) {
+//           if (ans === "Burning coal") {
+//             document.getElementById("ans").innerHTML = "right answer";
+//           }else {
+//             document.getElementById("ans").innerHTML = "wrong answer";
+//           }
+//         }
+//
+//           if ( document.getElementById("gold") === "https://img1.etsystatic.com/202/0/9022352/il_340x270.1271158443_9sah.jpg" ) {
+//             if (ans === "Burning coal") {
+//               document.getElementById("ans").innerHTML = "right answer";
+//             }else {
+//               document.getElementById("ans").innerHTML = "wrong answer";
+//             }
+//           }
+// }
 
-// responsive layout
-window.onload = function() {
-    resizeGame();
-    shuffleTiles();
-};
-window.onresize = function() { resizeGame() };
 
-function resizeGame() {
-    var portrait = window.innerHeight - gameGrid.offsetTop - padding > window.innerWidth - padding * 2;
-    var threshold = window.innerWidth - padding * 2 > 400 && window.innerHeight - gameGrid.offsetTop - padding > 400;
+var pic5 = "https://images.unsplash.com/photo-1536096347608-f2d054f64a17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80";
+var pic1 = "https://cdn.newsapi.com.au/image/v1/b835a9a3b2d8f1b62ea45f02676d1fa8";
+var pic2 = "https://bsmedia.business-standard.com/_media/bs/img/article/2019-06/27/full/1561658764-3817.jpg";
+var pic3 = "https://www.umweltbundesamt.de/sites/default/files/medien/378/bilder/deponie_airart_fotolia_33491092_m.jpg";
+var pic4 = "https://scx1.b-cdn.net/csz/news/800/2016/burningfossi.jpg";
 
-    if (threshold) {
-        if (portrait) {
-            gameGrid.style.width = window.innerWidth - padding * 2 + "px";
-            gameGrid.style.height = gameGrid.style.width;
-        }
-        else {
-            gameGrid.style.height = window.innerHeight - gameGrid.offsetTop - padding + "px";
-            gameGrid.style.width = gameGrid.style.height;
+
+var pictures = [pic1, pic2, pic3, pic4, pic5];
+
+function Generator() {
+    var randomImg = Math.floor(Math.random() * pictures.length);
+    gold.src = pictures[randomImg];
+    document.getElementById("gold").style.boxShadow = "5px 10px 15px black";
+}
+
+    var ans = document.getElementsByClassName("answers").innerHTML;
+var anpic5 = document.getElementById("anpic5").innerHTML;
+var anpic1 = document.getElementById("anpic1").innerHTML;
+var anpic2 = document.getElementById("anpic2").innerHTML;
+var anpic3 = document.getElementById("anpic3").innerHTML;
+var anpic4 = document.getElementById("anpic4").innerHTML;
+
+function submit() {
+    if (pictures == pic5) {
+ if (ans == anpic5) {
+       document.getElementById("check").innerHTML = "wrong answer";
+        } else  {
+             document.getElementById("check").innerHTML = "right answer";
         }
     }
-    icons.forEach((icon, i) => {
-        icon.style.fontSize = tiles[i].offsetHeight - 30 + "px";
-    });
-}
-
-// shuffle logic
-function shuffleTiles() {
-    for (i=0; i<16; i++) {
-        var randomNumber = Math.round(Math.random() * 15);
-        var memory = icons[randomNumber].className;
-
-        icons[randomNumber].className = icons[i].className;
-        icons[i].className = memory;
-    }
-}
-
-// flip logic
-tiles.forEach(function(t, i) {
-    t.onclick = function() {
-        if (!t.style.animation.startsWith("flip")) {
-            t.style.animation = "flip 0.2s";
-            setTimeout(function() {
-                icons[i].style.opacity = "1";
-
-                attempt.push(tiles[i]);
-
-                if (attempt.length == 2) {
-                    matchIcons();
-                }
-            }, 100);
-        }
-    };
-});
-
-// match icons logic
-function matchIcons() {
-    if (attempt[0].innerHTML != attempt[1].innerHTML) {
-        disableClicking();
-    } else {
-        attempt[0].style.background = "green";
-        attempt[1].style.background = "green";
-        attempt = [];
-        matched += 2;
-        if (matched == 16) {
-            setTimeout(victory, 200);
+   else if (pictures == pic1) {
+        if (ans == anpic1) {
+ document.getElementById("check").innerHTML = "wrong answer";
+        } else {
+            document.getElementById("check").innerHTML = "right answer";
         }
     }
-}
 
-function disableClicking() {
-    tiles.forEach(function(t) { t.style.pointerEvents = "none" });
-    setTimeout(unflip, 1000);
-}
+   else if (pictures == pic2) {
+        if (ans == anpic2) {
+ document.getElementById("check").innerHTML = "wrong answer";
+        } else {
+            document.getElementById("check").innerHTML = "right answer";
+        }
+    }
 
-function unflip() {
-    attempt.forEach(function(a) {
-        a.style.animation = "unflip 0.2s";
-        setTimeout(function() { a.firstChild.style.opacity = "0" }, 100);
-        setTimeout(function() {
-            attempt = [];
-            tiles.forEach(function(t) { t.style.pointerEvents = "inherit" });
-        }, 200);
-    });
-}
+   else if (pictures == pic3) {
+      if (ans == anpic3) {
+ document.getElementById("check").innerHTML = "wrong answer";
+        } else {
+            document.getElementById("check").innerHTML = "right answer";
+        }
+    }
 
-function victory() {
-    alert("Well done! You have matched all the tiles! Press OK to play again.");
-    resetGame();
-}
-
-function resetGame() {
-    tiles.forEach(function(t) {
-        t.style.animation = "unflip 0.1s";
-        t.style.background = "red";
-        t.firstChild.style.opacity = "0";
-        matched = 0;
-    });
-
-    shuffleTiles();
+    else {
+ if (ans == anpic4) {
+ document.getElementById("check").innerHTML = "wrong answer";
+        } else {
+            document.getElementById("check").innerHTML = "right answer";
+        }
+    }
 }
